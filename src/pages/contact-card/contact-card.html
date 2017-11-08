@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Contáctanos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="contact-card-content">
+  <ion-slides class="contact-slides" pager="true" autoplay="4000" loop="false">
+    <ion-slide class="contact-slide" *ngFor="let image of contact.images">
+      <background-image class="slide-image" [src]="image"></background-image>
+    </ion-slide>
+  </ion-slides>
+  <ion-row class="contact-details-row" wrap>
+    <ion-col no-padding width-65>
+      <h2 class="contact-name">{{ contact.name }}</h2>
+    </ion-col>
+    <ion-col no-padding width-35 class="rating-col">
+      <div class="contact-rating">
+        <ion-item class="rating-item">
+          <rating [(ngModel)]="contact.rating" max="5" read-only="true"></rating>
+        </ion-item>
+      </div>
+    </ion-col>
+    <ion-col no-padding width-100>
+      <p class="contact-description">
+        Abre: lunes a viernes de 8:30 am - 5:00 pm
+      </p>
+    </ion-col>
+  </ion-row>
+  <div class="button-bar">
+    <button ion-button primary (click)="call(contact.phone)">
+      <ion-icon name="call"></ion-icon>
+    </button>
+    <button ion-button primary (click)="sendMail(contact.email)">
+      <ion-icon name="mail"></ion-icon>
+    </button>
+    <button ion-button primary (click)="openInAppBrowser(contact.website)">
+      <ion-icon name="globe"></ion-icon>
+    </button>
+  </div>
+  <preload-image [ratio]="{w:4, h:3}" src="https://maps.googleapis.com/maps/api/staticmap?center=-12.0534118,-77.0855406&zoom=14&size=400x300&scale=2&markers=icon:https://goo.gl/images/V1UgE1|-12.0534118,-77.0855406"
+    alt="{{ contact.name }} location map" title="{{ contact.name }} - {{ contact.address }}"></preload-image>
+  <ion-list class="details-list">
+    <ion-item class="detail-item">
+      <ion-avatar item-left>
+        <ion-icon name="pin"></ion-icon>
+      </ion-avatar>
+      <span class="detail-text">{{ contact.address }}</span>
+    </ion-item>
+    <ion-item class="detail-item">
+      <ion-avatar item-left>
+        <ion-icon name="globe"></ion-icon>
+      </ion-avatar>
+      <span class="detail-text">{{ contact.website }}</span>
+    </ion-item>
+    <ion-item class="detail-item">
+      <ion-avatar item-left>
+        <ion-icon name="call"></ion-icon>
+      </ion-avatar>
+      <span class="detail-text">{{ contact.phone }} anexo {{ contact.annex }}</span>
+    </ion-item>
+    <ion-item class="detail-item">
+      <ion-avatar item-left>
+        <ion-icon name="mail"></ion-icon>
+      </ion-avatar>
+      <span class="detail-text">{{ contact.email }}</span>
+    </ion-item>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-5 offset-2 (click)="openLinkUnmsm()">
+        <ion-avatar>
+          <preload-image class="image" [ratio]="{w:1, h:1}" src="./assets/images/logo_unmsm.png"></preload-image>
+        </ion-avatar>
+      </ion-col>
+      <ion-col col-5 (click)="openLinkFisi()">
+        <ion-avatar>
+          <preload-image class="image" [ratio]="{w:1, h:1}" src="./assets/images/logo_fisi_unmsm.png"></preload-image>
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

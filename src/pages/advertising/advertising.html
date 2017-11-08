@@ -1,0 +1,25 @@
+<ion-header class="advertising-header">
+  <ion-toolbar>
+    <ion-buttons end>
+      <button ion-button icon-only class="skip-button" (click)="dismiss()">
+        <span showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="advertising-content">
+  <ion-grid class="slide-1">
+    <ion-row class="intro-image-row">
+      <ion-col center width-64 no-padding>
+        <preload-image [ratio]="{w:1, h:1}" src="{{ url_image }}" alt="app logo"></preload-image>
+      </ion-col>
+    </ion-row>
+    <h2 class="main-title">{{ greeting }}</h2>
+    <p class="intro-text">
+      Somos el
+      <b>NIIT Róbotica e IoT</b> Investigando e innovando
+    </p>
+  </ion-grid>
+</ion-content>

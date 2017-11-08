@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Califícanos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="forms-examples-content">
+  <ion-segment class="forms-examples-segment" [(ngModel)]="section" (ionChange)="onSegmentChanged($event)">
+    <ion-segment-button value="qualify" (ionSelect)="onSegmentSelected($event)">
+      Calificar
+    </ion-segment-button>
+    <ion-segment-button value="comments" (ionSelect)="onSegmentSelected($event)">
+      Comentarios
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="section" class="forms-wrapper">
+    <div *ngSwitchCase="'qualify'" class="post-example-view">
+      <div>
+        <ion-item>
+          <ion-label>Haz login y déjanos tu comentario.</ion-label>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <button ion-button icon-start block class="facebook-auth-button" (click)="doFacebookLogin()">
+              <ion-icon name="logo-facebook"></ion-icon>
+                Facebook
+            </button>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <form class="sample-form post-form" [formGroup]="post_form" (ngSubmit)="createPost()">
+        <ion-item class="rating-item">
+          <span class="rating-label">Puntuación</span>
+          <rating formControlName="rate" max="5"></rating>
+        </ion-item>
+        <ion-item>
+          <ion-textarea rows="7" placeholder="Escribe un comentario..." formControlName="comment"></ion-textarea>
+        </ion-item>
+        <section class="form-section">
+          <button ion-button block class="form-action-button create-post-button" type="submit" [disabled]="!post_form.valid">ENVIAR</button>
+        </section>
+      </form>
+    </div>
+    <div *ngSwitchCase="'comments'" class="notifications-content">
+      <ion-item-group>
+        <ion-item class="notification-item" *ngFor="let comment of comments | async">
+          <ion-avatar item-left>
+            <preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="comment.author_image"></preload-image>
+          </ion-avatar>
+          <h2 class="item-title">{{comment.author_name}}</h2>
+          <p class="item-description">{{comment.comment}}</p>
+          <div class="ratin-col contact-rating" no-padding no-margin>
+            <ion-item class="rating-item">
+              <rating [(ngModel)]="comment.rate" max="5" read-only="true"></rating>
+            </ion-item>
+          </div>
+          <ion-note class="item-time" item-right>{{comment.date}}</ion-note>
+        </ion-item>
+      </ion-item-group>
+    </div>
+  </div>
+</ion-content>
