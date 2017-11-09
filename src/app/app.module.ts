@@ -35,9 +35,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { IBeacon } from '@ionic-native/ibeacon';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { SpinnerDialog } from '@ionic-native/spinner-dialog';
 import { Toast } from '@ionic-native/toast';
-import { BackgroundMode } from '@ionic-native/background-mode';
 
 // Functionalities
 import { MapsPage } from '../pages/maps/maps';
@@ -125,9 +123,7 @@ export const firebaseConfig = {
     EmailComposer,
     IBeacon,
     LocalNotifications,
-    SpinnerDialog,
     Toast,
-    BackgroundMode,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

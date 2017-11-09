@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, MenuController, Nav, App, ModalController, NavParams } from 'ionic-angular';
+import { Platform, MenuController, Nav, App, ModalController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IBeacon } from '@ionic-native/ibeacon';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { BackgroundMode } from '@ionic-native/background-mode';
 
 import { TabsNavigationPage } from '../pages/tabs-navigation/tabs-navigation';
 import { AdvertisingPage } from '../pages/advertising/advertising';
@@ -45,7 +44,6 @@ export class MyApp {
     private ibeacon: IBeacon,
     private localNotifications: LocalNotifications,
     public modalCtrl: ModalController,
-    private backgroundMode: BackgroundMode
   ) {
     platform.ready().then(() => {
       platform.resume.subscribe(
@@ -82,7 +80,7 @@ export class MyApp {
 
       let beaconRegion = this.ibeacon.BeaconRegion(i + 1, this.regions[i].uuid);
 
-      // Start monitoring.      
+      // Start monitoring.
       this.ibeacon.startMonitoringForRegion(beaconRegion)
         .then(
         () => console.log('Native layer recieved the request to monitoring'),

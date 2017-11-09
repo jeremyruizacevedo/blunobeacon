@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, SegmentButton, AlertController, LoadingController } from 'ionic-angular';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
-import { counterRangeValidator } from '../../components/counter-input/counter-input';
 
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
@@ -144,7 +143,7 @@ export class FormLayoutPage {
             );
           },
           error => {
-            this.post_form.value.author_name = "Usuario"      
+            this.post_form.value.author_name = "Usuario"
             this.commentsRef.push(this.post_form.value);
             this.toast.show("Gracias por calificarnos", '5000', 'bottom').subscribe(
               toast => {
