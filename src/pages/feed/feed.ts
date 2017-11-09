@@ -32,12 +32,12 @@ export class FeedPage {
     this.posts = [
       {
         title: "Beacons",
-        image: "https://b-i.forbesimg.com/anthonykosner/files/2013/08/ibeacons.jpg",
+        image: "./assets/images/ibeacon.png",
         description: "Un beacon es un dispositivo de bajo consumo que emite una señal broadcast, y son suficientemente pequeños para fijarse en una pared o mostradores. Utiliza conexión bluetooth de bajo consumo (BLE) para transmitir mensajes o avisos directamente a un dispositivo móvil sin necesidad de una sincronización de los aparatos, la señal es captada por estos dispositivos y se transmite a menudo a un servidor en la nube a través de internet. El servidor de la nube procesa la información y lleva a cabo análisis más detallado para guiar los comportamientos basados en la localización específica del dispositivo móvil"
       },
       {
         title: "Arduino Bluno Nano",
-        image: "http://www.avrcircuit.com/shop/img/p/2/8/5/285-large.jpg",
+        image: "./assets/images/blunonano.png",
         description: "Tiene el tamaño de un chicle, el Bluno Nano es perfecto para proyectos BLE con espacio o peso limitado.La familia Bluno de DFRobot es la primera de su tipo en integrar el módulo BT 4.0 (BLE) en Arduino Uno, lo que la convierte en una plataforma ideal de creación de prototipos para que los desarrollos sean inalámbricos. Podrá desarrollar su propia pulsera inteligente, podómetro inteligente y más. A través de la tecnología Bluetooth 4.0 de baja potencia, la comunicación de baja energía en tiempo real se puede hacer realmente fácil."
       }
     ]
